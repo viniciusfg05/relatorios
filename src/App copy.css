@@ -1,0 +1,204 @@
+.containerMain {
+  background: #f5f5f5;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.pageMain {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 20px 0;
+}
+
+.contentMain {
+  background: white;
+  width: 56.64rem;
+  height: 81.41rem;
+  position: relative;
+  max-width: 90vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  page-break-after: always;
+}
+
+.elipcedireita {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.contentMain h1 {
+  position: relative;
+  z-index: 2;
+  color: #333;
+  text-align: center;
+  margin: 2rem;
+  font-size: 2rem;
+}
+
+.editableText {
+  padding: 2rem;
+  margin-top: 15rem;
+  position: relative;
+  z-index: 2;
+  min-height: 200px;
+}
+
+.editableText header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 2rem;
+}
+
+.editableText h3 {
+  margin: 0;
+  color: #333e55;
+}
+
+.divide {
+  border-bottom: 3px solid #333e55;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.photoGrid {
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+}
+
+.photoGridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1rem;
+  height: 400px;
+}
+
+.photoItem {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.photoItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoItem.dragover {
+  border-color: #007bff;
+  background: #e3f2fd;
+}
+
+.photoItem .removeBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.controls button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.controls button:hover {
+  background: #0056b3;
+}
+
+.controls button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  background: #f9f9f9;
+  margin: 10px 0;
+}
+
+.dropzone.dragover {
+  border-color: #007bff;
+  background: #e3f2fd;
+}
+
+.pageNumber {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #333;
+  z-index: 3;
+}
+
+@media print {
+  .containerMain {
+      background: white;
+      padding: 0;
+  }
+  
+  .controls {
+      display: none;
+  }
+  
+  .contentMain {
+      box-shadow: none;
+      margin-bottom: 0;
+      page-break-after: always;
+  }
+}
