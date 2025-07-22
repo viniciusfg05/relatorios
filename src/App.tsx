@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -127,7 +127,7 @@ function App() {
     preventDropOnDocument: true
   });
 
-  const removePhoto = (pageId: string, photoId: string) => {
+  const removePhoto = ( photoId: string) => {
     setPages(prevPages => {
       // Remove a foto
       const allPhotos = prevPages.flatMap(page => page.photos).filter(photo => photo.id !== photoId);
@@ -258,7 +258,7 @@ function App() {
               <img src={photo.url} alt={`Foto ${index + 1}`} />
               <button 
                 className="removeBtn"
-                onClick={() => removePhoto(page.id, photo.id)}
+                onClick={() => removePhoto(photo.id)}
                 title="Remover foto"
               >
                 ×
