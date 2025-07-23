@@ -226,13 +226,14 @@ function App() {
       
       try {
         const canvas = await html2canvas(element, {
-          scale: 2,
+          scale: 2, // Aumentado para melhorar a nitidez
           useCORS: true,
           allowTaint: true,
           backgroundColor: '#ffffff'
         });
 
-        const imgData = canvas.toDataURL('image/png');
+        // Gerar imagem JPEG com qualidade 0.9
+        const imgData = canvas.toDataURL('image/jpeg', 0.9);
         const imgWidth = 210; // A4 width in mm
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         
@@ -240,7 +241,8 @@ function App() {
           pdf.addPage();
         }
         
-        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        // Usar formato JPEG
+        pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
       } catch (error) {
         console.error('Erro ao gerar PDF:', error);
       }
