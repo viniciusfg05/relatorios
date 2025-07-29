@@ -10,7 +10,7 @@ interface Props {
   data: string;
 }
 
-const Pagina1Conclusao: React.FC<Props> = ({ destinatario, data }) => {
+const Pagina1Conclusao: React.FC<Props> = ({ data }) => {
   const [dataEditavel, setDataEditavel] = useState(data);
   const [editando, setEditando] = useState(false);
 
